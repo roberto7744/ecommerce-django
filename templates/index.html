@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>E-commerce - Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    header { margin-bottom: 20px; }
+    nav a { margin-right: 15px; color: #2a6fdb; text-decoration: none; }
+    .container { max-width: 900px; }
+    .card { border: 1px solid #ddd; padding: 12px; margin-bottom: 12px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Proyecto E-commerce (Backend)</h1>
+      <nav>
+        <a href="/admin/">Admin</a>
+        <a href="/api/">API</a>
+      </nav>
+    </header>
+
+    <section class="card">
+      <h2>Estado</h2>
+      <p>Servidor Django en ejecución. Usa el panel <a href="/admin/">Admin</a> para crear productos o la <a href="/api/">API</a> para consultar endpoints.</p>
+    </section>
+
+    <section class="card">
+      <h2>Guía rápida</h2>
+      <ol>
+        <li>Registrar usuario: <code>POST /api/auth/register/</code></li>
+        <li>Obtener token: <code>POST /api/auth/login/</code></li>
+        <li>Listar productos: <code>GET /api/products/</code></li>
+        <li>Crear pedido (autenticado): <code>POST /api/orders/</code></li>
+      </ol>
+    </section>
+
+    <footer style="margin-top:24px;color:#666;font-size:0.9em">
+      <p>Entorno de desarrollo — no use en producción.</p>
+    </footer>
+  </div>
+</body>
+</html>
