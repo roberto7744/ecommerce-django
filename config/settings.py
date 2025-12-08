@@ -4,11 +4,20 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ---------------------------------------------------------
+# SECRET KEY & DEBUG
+# ---------------------------------------------------------
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-no-usar-en-produccion")
 
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ["*","ecommerce-django-production-39cb.up.railway.app"]  # Para permitir frontend y deploy
+# ---------------------------------------------------------
+# ALLOWED HOSTS
+# ---------------------------------------------------------
+ALLOWED_HOSTS = [
+    "*",
+    "ecommerce-django-production-39cb.up.railway.app",
+]
 
 # ---------------------------------------------------------
 # APPS
@@ -76,7 +85,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # ---------------------------------------------------------
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",  # Simple y funciona en Render
+        "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
@@ -123,3 +132,10 @@ SIMPLE_JWT = {
 # CORS
 # ---------------------------------------------------------
 CORS_ALLOW_ALL_ORIGINS = True
+
+# ---------------------------------------------------------
+# CSRF — NECESARIO PARA RAILWAY (HTTPS)
+# ---------------------------------------------------------
+CSRF_TRUSTED_ORIGINS = [
+    "https://ecommerce-django-production-39cb.up.railway.app",
+]
