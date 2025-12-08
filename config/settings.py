@@ -45,8 +45,11 @@ INSTALLED_APPS = [
 # ---------------------------------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    # Archivos estáticos
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
+    # CORS antes del CommonMiddleware
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 
@@ -65,10 +68,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'templates',  # Templates del proyecto
-            BASE_DIR / 'frontend',   # Carpeta del frontend que agregaremos
-        ],
+        'DIRS': [BASE_DIR / 'templates'],  # Carpeta templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,13 +132,15 @@ SIMPLE_JWT = {
 }
 
 # ---------------------------------------------------------
-# CORS
+# CORS — NECESARIO PARA FRONTEND HTML
 # ---------------------------------------------------------
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 # ---------------------------------------------------------
-# CSRF — NECESARIO PARA RAILWAY (HTTPS)
+# CSRF — NECESARIO EN RAILWAY (HTTPS)
 # ---------------------------------------------------------
 CSRF_TRUSTED_ORIGINS = [
+    "https://*.up.railway.app",
     "https://ecommerce-django-production-39cb.up.railway.app",
 ]
