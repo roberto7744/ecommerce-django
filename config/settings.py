@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 # ---------------------------------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Archivos estáticos en deploy
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -65,7 +65,10 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Carpeta templates global
+        'DIRS': [
+            BASE_DIR / 'templates',  # Templates del proyecto
+            BASE_DIR / 'frontend',   # Carpeta del frontend que agregaremos
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
