@@ -8,7 +8,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-no-usar-en-produccion"
 
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ["*"]  # Para permitir frontend y deploy
+ALLOWED_HOSTS = ["*","ecommerce-django-production-39cb.up.railway.app"]  # Para permitir frontend y deploy
 
 # ---------------------------------------------------------
 # APPS
